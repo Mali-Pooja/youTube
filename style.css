@@ -1,0 +1,145 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #212121;
+}
+
+
+.navbar {
+    width: 100vw;
+    height: 8vh;
+    background-color: #212121;
+    position: sticky;
+    top: 0;
+}
+
+.conatiner {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+}
+
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 20vw;
+    height: 3vh;
+    background: #121212;
+    border: none;
+    padding:2px;
+    color: white;
+}
+
+.green-box 
+{
+    width: 2vw;
+    height: 3.5vh;
+    border: 1px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #303030;
+    margin-right:10px;
+}
+
+.mic
+{
+    width: 2vw;
+    height: 4vh;
+    background: #121212;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.class1
+{
+width:15vw;
+height:100vh;
+background: #212121;
+}
+
+::-webkit-scrollbar{
+    display:none;
+}
+
+.font1
+{
+    background-color:#303030;
+    width:13vw;
+    height:3vh;
+    margin-left:2px;
+    border-radius:3px;
+}
+.search-bar1
+{
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    padding:8px;
+    margin-top:3px;
+}
+
+.min
+{
+    margin-left:10px;
+    margin-right:35px;
+}
+
+.horizonatal
+{
+    background-color:gray;
+    height:1px;
+    width:20vw;
+
+
+}
+.scrollable
+{
+    overflow-y: scroll;
+}
+
+.font
+{
+font-family: Calibri;
+font-size: 20px;
+font-weight: 400;
+color:white;
+}
+
+#class2
+{
+    padding:10px;
+  display:flex;
+  flex-wrap: wrap;
+    width:85vw;
+    height:100vh;
+    background:black;
+}
+
+.main
+{
+    display: flex;
+}
+
+
+.infodiv
+{
+    margin-top:"-30px";
+}
