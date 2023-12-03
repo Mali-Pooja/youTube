@@ -143,3 +143,18 @@ color:white;
 {
     margin-top:"-30px";
 }
+
+
+
+.sim
+{
+    margin-inline: 10%;
+   
+}
+
+#recommended-videos
+{
+    width:30vw;
+    height:100vh;
+    background-color: pink;
+}

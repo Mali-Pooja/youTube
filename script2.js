@@ -1,5 +1,5 @@
 const BASE_URL = "https://www.googleapis.com/youtube/v3";
-const API_KEY = "AIzaSyAT_bd6XUSKbtz0x4vVrGha688NcedYybk";
+const API_KEY = "AIzaSyAo7626fi4DK5OsZN8_nVm0G12CwtmPBzA";
 const class2 = document.getElementById('class2');
 
 const CONTENT_DETAILS = "contentDetails"; // length of video
@@ -23,22 +23,7 @@ async function fetchAndRenderVideos(searchQuery, maxResults) {
     }
 }
 
-async function fetchChannelLogo(channelId) {
-    try {
-        const response = await fetch(
-            BASE_URL +
-            "/channels" +
-            `?key=${API_KEY}` +
-            "&part=snippet" +
-            `&id=${channelId}`
-        );
-        const data = await response.json();
-        //  console.log(data);
-        return data.items[0]?.snippet;
-    } catch (err) {
-        console.log(err);
-    }
-}
+
 
 async function fetchVideoStats(videoId, typeOfDetails) {
     const response = await fetch(
@@ -70,7 +55,14 @@ function renderVideos(list) {
         block.style.height = '350px';
         block.style.width = '300px';
         block.style.color = 'white';
-        block.style.paddingRight = '20px'
+        block.style.paddingRight = '20px';
+        block.addEventListener('click', () => {
+            // Store the video ID in local storage on click
+            localStorage.setItem('selectedVideoId', video.id.videoId);
+
+            // Redirect to the other page
+            window.location.href = 'videos.html';
+        });
 
         const videoDiv = document.createElement('div');
         videoDiv.style.height = '200px';
@@ -101,9 +93,9 @@ function renderVideos(list) {
         const infoDiv = document.createElement('div');
         infoDiv.style.display = 'flex'; // Flexbox
         infoDiv.style.alignItems = 'center';
-        infoDiv.style.marginTop='-23px';
-        infoDiv.style.fontSize='13px';
-        infoDiv.style.color='#868686'
+        infoDiv.style.marginTop = '-23px';
+        infoDiv.style.fontSize = '13px';
+        infoDiv.style.color = '#868686'
 
 
         const pTag2 = document.createElement('p');
@@ -149,14 +141,14 @@ function renderVideos(list) {
 
 
 
- // Append elements to the infoDiv
- infoDiv.appendChild(pTag2); // Append pTag2 to infoDiv after view count
+        // Append elements to the infoDiv
+        infoDiv.appendChild(pTag2); // Append pTag2 to infoDiv after view count
 
- // Append elements to the block
- block.appendChild(videoDiv);
- block.appendChild(profileDiv);
- block.appendChild(pTag1);
- block.appendChild(infoDiv); // Append infoDiv to block
+        // Append elements to the block
+        block.appendChild(videoDiv);
+        block.appendChild(profileDiv);
+        block.appendChild(pTag1);
+        block.appendChild(infoDiv); // Append infoDiv to block
 
 
         class2.appendChild(block);
@@ -170,9 +162,60 @@ function searchVideos() {
         class2.innerHTML = ""; // Clear existing videos
         fetchAndRenderVideos(searchQuery, 20);
     } else {
-        class2.innerHTML = ""; // Clear existing videos
+        //class2.innerHTML = ""; // Clear existing videos
         fetchAndRenderVideos("", 20); // Show default videos if the search query is empty
     }
 }
 
 searchVideos();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function fetchChannelLogo(channelId) {
+    try {
+        const response = await fetch(
+            BASE_URL +
+            "/channels" +
+            `?key=${API_KEY}` +
+            "&part=snippet" +
+            `&id=${channelId}`
+        );
+        const data = await response.json();
+        tt.log(data);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+fetchChannelLogo("UCt2JXOLNxqry7B_4rRZME3Q")
